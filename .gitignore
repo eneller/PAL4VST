@@ -41,4 +41,5 @@ kate_test_data.zip
 /kate_test_data
 pal4vst_data.zip 
 
-
+venv/
+__pycache__/
