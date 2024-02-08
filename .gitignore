@@ -1,45 +1,45 @@
 *.pt
 *.pth
 
-/data
-/kate_test_data
+src/pal4vst/data
+src/pal4vst/kate_test_data
 
-/mmsegmentation/pretrain
-/mmsegmentation/work_dirs
-/mmsegmentation/configs/metacaf
-/mmsegmentation/train_debug.sh
-/mmsegmentation/train_metacaf.sh
-/mmsegmentation/eval_all.py
-/mmsegmentation/eval_all.sh
-/mmsegmentation/test_metacaf.sh
-/mmsegmentation/debug.py
-/mmsegmentation/.git
+src/pal4vst/mmsegmentation/pretrain
+src/pal4vst/mmsegmentation/work_dirs
+src/pal4vst/mmsegmentation/configs/metacaf
+src/pal4vst/mmsegmentation/train_debug.sh
+src/pal4vst/mmsegmentation/train_metacaf.sh
+src/pal4vst/mmsegmentation/eval_all.py
+src/pal4vst/mmsegmentation/eval_all.sh
+src/pal4vst/mmsegmentation/test_metacaf.sh
+src/pal4vst/mmsegmentation/debug.py
+src/pal4vst/mmsegmentation/.git
 
 
-deployment/pal4vst/swin-large_upernet_unified_512x512/end2end.pt
-/mmdeploy/.git
+src/pal4vst/deployment/pal4vst/swin-large_upernet_unified_512x512/end2end.pt
+src/pal4vst/mmdeploy/.git
 
 copy_files_from_AdobePAL.sh
 
-/demo_test_data/anyresgan/vis_pal
-/demo_test_data/cvton/vis_pal
-/demo_test_data/edge2image/vis_pal
-/demo_test_data/latent_composition/vis_pal
-/demo_test_data/ldm/vis_pal
-/demo_test_data/mask2image/vis_pal
-/demo_test_data/portrait_shadow_removal/vis_pal
-/demo_test_data/stylegan2_animal/vis_pal
-/demo_test_data/stylegan2_ffhq/vis_pal
-/demo_test_data/stylegan2_human/vis_pal
-/demo_test_data/super_resolution/vis_pal
-/demo_test_data/text2image_dalle/vis_pal
-/demo_test_data/text2image_sd/vis_pal
+src/pal4vst/demo_test_data/anyresgan/vis_pal
+src/pal4vst/demo_test_data/cvton/vis_pal
+src/pal4vst/demo_test_data/edge2image/vis_pal
+src/pal4vst/demo_test_data/latent_composition/vis_pal
+src/pal4vst/demo_test_data/ldm/vis_pal
+src/pal4vst/demo_test_data/mask2image/vis_pal
+src/pal4vst/demo_test_data/portrait_shadow_removal/vis_pal
+src/pal4vst/demo_test_data/stylegan2_animal/vis_pal
+src/pal4vst/demo_test_data/stylegan2_ffhq/vis_pal
+src/pal4vst/demo_test_data/stylegan2_human/vis_pal
+src/pal4vst/demo_test_data/super_resolution/vis_pal
+src/pal4vst/demo_test_data/text2image_dalle/vis_pal
+src/pal4vst/demo_test_data/text2image_sd/vis_pal
 
-debug.py
+src/pal4vstdebug.py
 
-kate_test_data.zip
-/kate_test_data
-pal4vst_data.zip 
+src/pal4vstkate_test_data.zip
+src/pal4vst/kate_test_data
+src/pal4vstpal4vst_data.zip 
 
 venv/
 __pycache__/

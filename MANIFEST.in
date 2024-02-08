@@ -1,0 +1,1 @@
+recursive-include src/pal4vst/deployment *.json
