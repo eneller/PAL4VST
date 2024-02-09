@@ -38,8 +38,7 @@ def numpy2tensor(img):
     img = torch.from_numpy(img).transpose(0,2).transpose(1,2).unsqueeze(0).float()
     return img
 
-def prepare_input(img, device=None):
-    if device is None: device = "cuda:0" if torch.cuda.is_available() else "cpu"
+def prepare_input(img):
     if isinstance(img, Image.Image): 
         img = img.resize((512, 512))
         img = np.asarray(img)
@@ -47,9 +46,9 @@ def prepare_input(img, device=None):
     Convert numpy image into a normalized tensor (ready to do segmentation)
     """
     mean_img, stdinv_img = get_mean_stdinv(img)
-    img_tensor = numpy2tensor(img).to(device)
-    mean_img_tensor = numpy2tensor(mean_img).to(device)
-    stdinv_img_tensor = numpy2tensor(stdinv_img).to(device)
+    img_tensor = numpy2tensor(img)
+    mean_img_tensor = numpy2tensor(mean_img)
+    stdinv_img_tensor = numpy2tensor(stdinv_img)
     img_tensor = img_tensor - mean_img_tensor
     img_tensor = img_tensor * stdinv_img_tensor
     return img_tensor
