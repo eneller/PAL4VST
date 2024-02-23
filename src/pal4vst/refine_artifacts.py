@@ -15,7 +15,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='')
     parser.add_argument('--img_file', type=str, default='./demo_test_data/mask2image/images/000000483531.jpg')
     parser.add_argument('--torchscript_file', type=str, default='./deployment/pal4vst/swin-large_upernet_unified_512x512/end2end.pt')
-    parser.add_argument('--out_refine_file', type=str, default='refine.jpg')
+    parser.add_argument('--out_refine_file', type=str, default='./demo_results/000000483531_refine.jpg')
     parser.add_argument('--device', type=int, default=0)
     parser.add_argument('--num_inference_steps', type=int, default=75)
     parser.add_argument('--high_noise_frac', type=float, default=0.5)
