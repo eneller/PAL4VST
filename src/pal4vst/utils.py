@@ -39,7 +39,8 @@ def numpy2tensor(img):
     return img
 
 # TODO refactor without device
-def prepare_input(img, device):
+def prepare_input(img, device=None):
+    if device is None: device = "cuda:0" if torch.cuda.is_available() else "cpu"
     if isinstance(img, Image.Image): 
         img = img.resize((512, 512))
         img = np.asarray(img)
@@ -47,9 +48,9 @@ def prepare_input(img, device):
     Convert numpy image into a normalized tensor (ready to do segmentation)
     """
     mean_img, stdinv_img = get_mean_stdinv(img)
-    img_tensor = numpy2tensor(img)
-    mean_img_tensor = numpy2tensor(mean_img)
-    stdinv_img_tensor = numpy2tensor(stdinv_img)
+    img_tensor = numpy2tensor(img).to(device)
+    mean_img_tensor = numpy2tensor(mean_img).to(device)
+    stdinv_img_tensor = numpy2tensor(stdinv_img).to(device)
     img_tensor = img_tensor - mean_img_tensor
     img_tensor = img_tensor * stdinv_img_tensor
     return img_tensor
