@@ -38,7 +38,8 @@ def numpy2tensor(img):
     img = torch.from_numpy(img).transpose(0,2).transpose(1,2).unsqueeze(0).float()
     return img
 
-def prepare_input(img):
+# TODO refactor without device
+def prepare_input(img, device):
     if isinstance(img, Image.Image): 
         img = img.resize((512, 512))
         img = np.asarray(img)
@@ -53,6 +54,7 @@ def prepare_input(img):
     img_tensor = img_tensor * stdinv_img_tensor
     return img_tensor
 
+# FIXME use opencv to draw text
 def draw_text_on_image(image_path, text, scale):
     # Open an image file
     with Image.open(image_path) as img:
