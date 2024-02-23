@@ -23,6 +23,7 @@ dependencies = [
     "diffusers",
     "torchvision",
     "gdown"
+    "accelerate"
 ]
 
 [project.urls]
