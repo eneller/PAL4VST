@@ -7,6 +7,12 @@ import cv2
 import pdb
 
 
+def get_imgs(path):
+    if os.path.isfile(path):
+        return [path]
+    # should be a directory then
+    return sorted(glob.glob(args.input_img_dir + '/*'))
+
 def get_mean_stdinv(img):
     """
     Compute the mean and std for input image (make sure it's aligned with training)
