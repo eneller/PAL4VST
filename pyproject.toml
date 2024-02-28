@@ -22,7 +22,7 @@ dependencies = [
     "transformers",
     "diffusers",
     "torchvision",
-    "gdown"
+    "gdown",
     "accelerate"
 ]
 

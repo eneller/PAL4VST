@@ -5,13 +5,15 @@ import numpy as np
 import torch
 import cv2
 import pdb
+import os
+import glob
 
 
 def get_imgs(path):
     if os.path.isfile(path):
         return [path]
     # should be a directory then
-    return sorted(glob.glob(args.input_img_dir + '/*'))
+    return sorted(glob.glob(path + '/*'))
 
 def get_mean_stdinv(img):
     """
