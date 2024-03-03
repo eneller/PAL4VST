@@ -27,7 +27,7 @@ if __name__ == '__main__':
     # load PAl model
     model = torch.load(args.torchscript_file).to(args.device)
 
-    for img_file in tqdm(get_imgs(args.input)):
+    for img_file in tqdm(get_paths(args.input)):
         # compute pal on the generated image
         img = np.array(Image.open(img_file).resize((512, 512)))    
         img_tensor = prepare_input(img, args.device)

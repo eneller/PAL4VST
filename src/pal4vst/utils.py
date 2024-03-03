@@ -9,7 +9,7 @@ import os
 import glob
 
 
-def get_imgs(path):
+def get_paths(path):
     if os.path.isfile(path):
         return [path]
     # should be a directory then
