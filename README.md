@@ -11,7 +11,6 @@ Lingzhi Zhang, Zhengjie Xu, Connelly Barnes, Yuqian Zhou, Qing Liu, He Zhang, So
 This paper presents a study of Perceptual Artifacts Localization on multiple synthesis tasks. 
 
 ## Prerequisites
-- Linux
 - Python 3
 - NVIDIA GPU + CUDA CuDNN
 
@@ -29,28 +28,15 @@ This paper presents a study of Perceptual Artifacts Localization on multiple syn
 ## Setup
 - Clone this repo:
 ```bash
-git clone https://github.com/owenzlz/PAL4VST
+git clone https://github.com/eneller/PAL4VST
 ```
 
 - Install dependencies:
 ```bash
-conda create --name pal4vst python=3.8 -y
-conda activate pal4vst
-pip install torch torchvision
-pip install -U openmim
-mim install mmengine
-mim install "mmcv>=2.0.0"
-pip install timm==0.6.5
-pip install scikit-image
-pip install -U openmim && mim install "mmpretrain>=1.0.0rc8"
-pip install mmdeploy==1.3.0
-cd mmsegmentation
-pip install -v -e .
-
-pip install transformers
-pip install --upgrade diffusers[torch]
+python -m venv .venv
+pip install -e . # editable install
 ```
-For more information, please feel free to refer to MMSegmentation: https://mmsegmentation.readthedocs.io/en/latest/
+Follow the Instructions to install [PyTorch on your system](https://pytorch.org/get-started/locally/).
 
 <a name="test_images"/>
 
@@ -75,21 +61,6 @@ Download torchscript checkpoint
 ([swin-large_upernet_unified_512x512](https://drive.google.com/file/d/1alICAkY8sjr-gwWknAEQjIKDkdPUPyKd/view?usp=sharing)), and place it under ./deployment/pal4vst/swin-large_upernet_unified_512x512/. 
 
 
-- A snippet of inference on a single image
-```
-from utils import *
-from PIL import Image
-import numpy as np 
-import torch
-
-device = 0
-torchscript_file = './deployment/pal4vst/swin-large_upernet_unified_512x512/end2end.pt'
-img_file = './demo_test_data/stylegan2_ffhq/images/seed0417.jpg'
-
-model = torch.load(torchscript_file).to(device)
-img_tensor = prepare_input(np.array(Image.open(img_file).resize((512, 512))), device)
-pal = model(img_tensor).cpu().data.numpy()[0][0] # prediction: Perceptual Artifacts Localization (PAL)
-```
 
 - Alternatively, quick inference with torchscript
 ```bash
@@ -134,21 +105,6 @@ python refine_artifacts.py \
 ```
 
 **Note**: In the paper, we tried DALL-E 2 inpainter, which gives better results. However, since DALL-E 2 is not free, we offer SD-XL as an alternative option here. 
-
-## Application 2 - Image Curation
-
-Given a folder of generated images, our PAL model can rank their quality using the area of detected artifacts region. 
-
-<img src="https://github.com/owenzlz/PAL4VST/blob/project_page/resources/curate_images.gif" style="width:800px;">
-
-Rank the quality for a set of images. 
-```bash
-python curate_images.py \
-       --torchscript_file ./deployment/pal4vst/swin-large_upernet_unified_512x512/end2end.pt \
-       --input_img_dir ./demo_test_data/stylegan2_ffhq/images \
-       --rank_img_dir ./demo_results/stylegan2_ffhq_rank
-```
-
 
 ## Datasets
 
